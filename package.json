@@ -1,0 +1,24 @@
+{
+  "name": "expressjs-basics",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/BhavneetS/ExpressJs-basics#readme",
+  "bugs": {
+    "url": "https://github.com/BhavneetS/ExpressJs-basics/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BhavneetS/ExpressJs-basics.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
