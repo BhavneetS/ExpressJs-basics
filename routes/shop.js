@@ -1,4 +1,8 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
+const path = require('path');
+
+const rootDir = require('../utils/pathUtil.js');
 
 router.use('/users', (req, res) => {
    return res.send('<h1>Hello from users!</h1>')
@@ -6,7 +10,7 @@ router.use('/users', (req, res) => {
 
 router.get('/', (req, resp, next) => {
     console.log(req.url);
-    resp.send('<h1>Hello from Express!</h1>');
+    resp.sendFile(path.join(rootDir, 'views', 'shop.html'))
 })
 
 
