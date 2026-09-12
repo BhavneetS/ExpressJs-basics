@@ -1,7 +1,10 @@
 
 const express = require('express');
 const app = express();
+const path = require('path');
 
+
+const rootDir = require('./utils/pathUtil'); 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop')
 /* 
@@ -12,7 +15,7 @@ app.get('/favicon.ico', (req, res) => {
 });
 
 /* 
-    parse data so that it is available in req.body.
+    parse req data so that it is available in req.body.
 */
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,8 +24,12 @@ app.use(adminRoutes); /* we can also use app.use('/admin' , adminRoutes) to filt
 app.use(shopRoutes);
 
 
+/* In order to read static files */
+app.use(express.static(path.join(__dirname, '/public')));
+
+
 app.use((req, res, next) => {
-   return res.status(404).send('<h1>Page not found</h1>');
+   return res.status(404).sendFile(path.join(rootDir, 'views', '404.html'))
 })
 
 app.listen(3000);

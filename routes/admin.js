@@ -3,7 +3,7 @@ const path = require('path');
 
 const rootPath = require('../utils/pathUtil.js');
 
-router.get('/add-product', (req, res) => {
+router.use('/add-product', (req, res) => {
     /* 
         While sending a file, we need to conact the path in this way as the base route will be the server route and not the application route. 
         __dirname will give the current directory route So we need to go back to the application route and then go to the views folder and then get the file.
