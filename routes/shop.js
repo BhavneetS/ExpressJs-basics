@@ -17,7 +17,15 @@ router.get('/', (req, resp, next) => {
         As we need to render the view using pug, we need to use resp.render() method.
         The first argument is the name of the view file without the extension and the second argument is an object which contains the data to be passed to the view.
     */
-    resp.render(path.join('shop'), {prods: products, docTitle: 'Shop', path:'/'})
+    resp.render(path.join('shop'), {
+        prods: products, 
+        docTitle: 'Shop', 
+        path:'/',
+        isAddProductActive: false,
+        isShopActive: true,
+        /* Since hanlebars is lightweight and cannot evaluate conditions, we need to pass the condition as a property */
+        hasProducts: products.length > 0
+    })
 })
 
 
